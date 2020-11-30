@@ -2,6 +2,7 @@
 
 ## Solution using AWK command 
 Inside BEGIN we have used OFS to empty space that will act as the output field saperator for the rest
+
 we have compared second item to the first item and printing it if it is not equal (We printed the first word as we are iterating from the second word)
 
 ```
