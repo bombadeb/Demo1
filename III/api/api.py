@@ -9,7 +9,16 @@ KEY = 'compl'
 '''
 FORMAT:
 localhost:5000/add?name=<name>
-''' 
+'''
+
+@app.route('/')
+def details():
+    return """<xmp>
+              Add word,
+              http://127.0.0.1:5000/add?name=<word>
+              Query word,
+              http://127.0.0.1:5000/suggestions?prefix=<word>
+              </xmp>"""
 
 @app.route('/add')
 def add_to_dict():
@@ -18,7 +27,7 @@ def add_to_dict():
         print("value of name"+name)
         line = name.strip()
         for end_index in range(1, len(line)):
-            prefix = line[0:end_index] 
+            prefix = line[0:end_index]
             print("Prefix values :"+prefix)
             r.zadd(KEY,{prefix:0})
         r.zadd(KEY,{line+'*':0})
@@ -68,4 +77,4 @@ def get_suggestions():
     return jsonify(results)
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host ='0.0.0.0', port = 5001, debug=True)
