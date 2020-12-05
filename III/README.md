@@ -6,7 +6,7 @@ sudo docker build --tag search-autocomplete-app .
 **Running the docker file**
 Make sure you are in root directory of the project and run the following command
 ```
-sudo docker run --name search-autocomplete-app -p 5000:5000 search-autocomplete-app
+sudo docker run --name search-autocomplete-app -p 5001:5001 search-autocomplete-app
 ```
 
 **Prerequisite**
